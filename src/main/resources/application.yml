@@ -2,6 +2,8 @@
 spring:
   application:
     name: lab-4-verb
+  profiles:
+    active: verb
   config:
     import: optional:configserver:http://localhost:8001
 #eureka:
@@ -9,7 +11,7 @@ spring:
 #    service-url:
 #      defaultZone: http://localhost:8010/eureka/
 
-words: ran,knew,had,saw,bought
+#words: ran,knew,had,saw,bought
 
 server:
   port: ${PORT:${SERVER_PORT:0}}
