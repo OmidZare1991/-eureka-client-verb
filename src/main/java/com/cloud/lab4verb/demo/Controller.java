@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+//@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class Controller {
     @Value("${words}")
     private String words;
 
     @GetMapping("/")
-    public @ResponseBody String getWord() {
+    public @ResponseBody Word getWord() {
         String[] wordArray = words.split(",");
         int i = (int) Math.round(Math.random() * (wordArray.length - 1));
-        return wordArray[i];
+        return new Word(wordArray[i]);
     }
 }
